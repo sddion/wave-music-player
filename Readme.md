@@ -19,12 +19,14 @@ Wave Music Player is a sleek and intuitive web application for playing your favo
 
 ## Demo
 
-[Live Demo](https://wave-f2co.onrender.com/)
+[Live Demo](https://wave-music-player.onrender.com/)
 
 ## Screenshots
 
-![Screenshot 1]()
-![Screenshot 2]()
+<p align="center"  >
+  <img height="300" width="650" src="Screenshot_2024.jpg" />
+</p>
+
 
 ## Installation
 
