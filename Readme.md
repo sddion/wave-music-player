@@ -49,7 +49,7 @@ Wave Music Player is a sleek and intuitive web application for playing your favo
 4. Run the application:
 
    ```bash
-   node app.js
+   node app.cjs
    ```
 
 5. Open your web browser and navigate to `http://localhost:3000` to access the Wave Music Player.
