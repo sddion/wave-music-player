@@ -1,0 +1,17 @@
+{
+  "name": "wave",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "util": "^0.12.5"
+  },
+  "description": ""
+}

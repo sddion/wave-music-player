@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title> Wave - Music Player </title>
+</head>
+
+    <body>
+
+      <header>
+        <div class="logo">
+          <img src="wave_logo.png" alt="Wave Logo">
+        </div>
+        <div class="search-container">
+          <input type="text" id="search" class="search-input" placeholder="Search for a song" oninput="searchSong()">
+          <div id="search-results" class="search-results"></div>
+        </div>        
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="views/about.html">About</a></li>
+                <li><a href="views/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+      <div id="songs-data"
+      data-songs='[
+       {
+         "title": "Unravel",
+         "name": "Tokyo ghoul",
+         "source": "songs/Unravel_(Acoustic_Version).mp3"
+       },
+       {
+         "title": "Itachi Theme",
+         "name": "Naruto Shippuden",
+         "source": "songs/Original_Itachi_Theme-song.mp3"
+       },
+       {
+        "title": "Wishes ft Talwiinder",
+        "name": "Hasan Raheem",
+        "source": "songs/Hasan_Raheem_Wishes_ft_Talwiinder.mp3"
+       },
+       {
+         "title": "Memory Reboot",
+         "name": "MVØJ Narvent",
+         "source": "songs/VOJ_Narvent_Memory_Reboot.mp3"
+       },
+       {
+         "title": "Wishes",
+         "name": "talwiinder verse (looped)",
+         "source": "songs/wishes_talwiinder_verse_(looped).mp3"
+       },
+       {
+         "title": "People You Know",
+         "name": "Selena Gomez",
+         "source": "songs/Selena_Gomez_People_You_Know.mp3"
+       },
+       {
+        "title": "So Far Away",
+        "name": "MartinGarrix & David Guetta_",
+        "source": "songs/Martin_Garrix_David_Guetta_So_Far_Away.mp3"
+       },
+       {
+        "title": "Sing Me To Sleep",
+        "name": "Alan Walker",
+        "source": "songs/Alan_Walker_Sing_Me-To_Sleep.mp3"
+       },
+       {
+         "title": "Koi Si",
+         "name": "Afsana Khan-Nirmaan-Enzo",
+         "source": "songs/Koi-Si-Afsana-Khan-Nirmaan-Enzo.mp3"
+       }
+     ]'>
+  </div>
+
+        <div class="album-cover">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="img/unravel.png" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/8f5cb1b6fa0f4f7a8a8295374a5d2c28.png" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/fbd91b36175c42648ae779c42bb7f51a.png" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/a2cc5e46a83d41228b05fd66b10b0cf3.png" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/fbd91b36175c42648ae779c42bb7f51a.png" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/People you know.jpeg" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/So_far_away.jpeg" />
+                <div class="overlay">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                   src="img/5b3b009cffd640048a41e760b6a9edf1.png" />
+                  <div class="overlay">
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="img/koisi.jpg" />
+                  <div class="overlay">
+                  </div>
+                  </div>
+              <div class="swiper-slide">
+                    <img src="" />
+                    <div class="overlay"></div>
+                    <div id="load-songs"></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+   
+      
+        <div class="music-player">
+          <h1>Title</h1>
+          <p>Song Name</p>
+    
+          <audio id="song" type="audio/mpeg" >
+          </audio>
+    
+          <div type="range" value="0" min="0" max="100" id="progress" >
+          <div id="progress-bar"></div>
+          </div>
+    
+          <div class="controls">
+            <button id="shuffle" class="shuffle">
+              <i class="fa-solid fa-random"></i>
+            </button>
+            <button class="backward">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="play-pause-btn">
+              <i class="fa-solid fa-play" id="controlIcon"></i>
+            </button>
+            <button class="forward">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+            <button  id="repeatBtn" class="repeat">
+              <i class="fa-solid fa-redo"></i>
+            </button>
+          </div>
+        </div>
+
+        <footer>
+          <div class="footer-content">
+              <div id="footer-logo" class="logo">
+                  <img src="logo.png" alt="Wave Logo">
+              </div>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+              <div class="footer-text">
+                <p>&copy; 2024 Wave Music Player. All rights reserved. <span class="tm">&#8482;</span></p>
+              </div>
+          </div>
+      </footer>
+      
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="js/main.js"></script>
+      </body>
+
+
+</html>
