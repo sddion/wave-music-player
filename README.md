@@ -1,7 +1,7 @@
 # Wave Music Player
 
 <p align="center">
-  <img src="public/logo.png" height="150px" width='150px">
+  <img src="public/logo.png" height="150" width="150" />
 </p>
 
 Wave Music Player is a sleek and intuitive web application for playing your favorite tunes. It offers a user-friendly interface and a range of features to enhance your listening experience.
