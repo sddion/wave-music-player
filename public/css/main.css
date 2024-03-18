@@ -431,7 +431,7 @@ footer {
   footer{
     padding-left: 13px;
   }
-
+  
   .footer-content {
     flex-direction: column; 
   }
@@ -447,11 +447,15 @@ footer {
   #footer-logo{
     padding-top: 4px;
   }
-
+  
   .album-cover{
     margin-top: 6%;
   }
-
+  
+  .controls {
+    padding-left: 1.4rem;
+  }
+  
   .controls button {
      width: 30px ;
   }
