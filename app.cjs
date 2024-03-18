@@ -10,8 +10,13 @@ const exec = promisify(require('child_process').exec);
 const MUSIC_DIR = path.join(__dirname, 'songs');
 const METADATA_DIR = path.join(__dirname, 'metadata');
 
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
 app.use(express.static('public'));
-app.use('/songs', express.static(MUSIC_DIR)); 
+ app.use('/api/songs', express.static(MUSIC_DIR)); 
 app.use(express.static(METADATA_DIR));
 
 
@@ -23,17 +28,17 @@ app.get('/songs/:filename', async (req, res) => {
   try {
     const filename = req.params.filename;
     const filePath = path.join(MUSIC_DIR, encodeURIComponent(filename));
-    const stat = fs.stat(filePath);
+    const stat = await fs.promises.stat(filePath); 
     if (!stat.isFile()) {
       throw new Error('File not found');
     }
     res.sendFile(filePath);
   } catch (error) {
     console.error(`Error serving song: ${error}`);
+    debug(error.stack); 
     res.status(404).send('File not found');
   }
 });
-
 
 class MusicPlayer {
   constructor(musicDir) {
@@ -41,7 +46,7 @@ class MusicPlayer {
     this.metadataDir = path.resolve(METADATA_DIR);
     this.currentSong = { title: '', artist: '', duration: 0, filename: '' };
     this.remainingSongs = [];
-    this.currentIndex = 0;
+    this.currentIndex = 3;
   }
 
   async initialize() {
@@ -53,6 +58,7 @@ class MusicPlayer {
       this.remainingSongs = files;
     } catch (error) {
       console.error(`Error initializing music player: ${error}`);
+      debug(error.stack);
       throw error;
     }
   }
@@ -63,6 +69,7 @@ class MusicPlayer {
       return files.filter(file => file.endsWith('.mp3'));
     } catch (error) {
       console.error(`Error reading music files: ${error}`);
+      debug(error.stack);
       throw error;
     }
   }
@@ -77,12 +84,20 @@ class MusicPlayer {
       return currentSong;
     } catch (error) {
       console.error(`Error in play: ${error}`);
+      debug(error.stack);
       throw error;
     }
   }
 }
 
 const player = new MusicPlayer(MUSIC_DIR);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  debug(err.stack); 
+  res.status(500).send('Something went wrong!');
+});
+
 
 (async () => {
   try {
@@ -93,6 +108,7 @@ const player = new MusicPlayer(MUSIC_DIR);
     });
   } catch (error) {
     console.error(`Failed to start server: ${error}`);
+    debug(error.stack);
     process.exit(1);
   }
 })();

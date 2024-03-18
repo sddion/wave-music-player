@@ -408,37 +408,43 @@ footer {
     padding-left: 20px; 
   }
   
-  .logo {
-    flex: 1 0 auto;
-    text-align: left;
+  header{
+    font-size: 0.6rem ;
   }
-
-  nav {
-    flex: 1 0 auto;
+  
+  #header-logo {
+    width: 40px;  
+    margin-top: 2px;
+    margin-right: 5px;
   }
-
+  
+  #search{
+    width: 100px;
+    font-size: 10px ;
+  }
+  
+  .search-input{
+    background-size: 18px ;
+  }
+  
+  #progress{
+    width: 96%;
+  }
+  
   .footer-content {
     flex-direction: column; 
   }
   
   .logo, .footer-text {
-    text-align: right; 
-    margin-bottom: 10px; 
+    text-align: center; 
   }
 
   .album-cover{
     margin-top: 6%;
   }
 
-  .controls {
-    flex: 1 0 auto;
-    justify-content: center;
+  .controls button {
+     width: 24px ;
+     font-size :0.7rem;
   }
-  
-  .logo img {
-    width: 40px;  
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-  
 }
