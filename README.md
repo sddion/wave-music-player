@@ -25,14 +25,15 @@ Wave Music Player is a sleek and intuitive web application for playing your favo
 
 ## Screenshots
 
-<div style="display: flex; flex-direction: column; align-items: center;">
   <div style="margin-bottom: 20px;">
-    <img src="Screenshot_2024.jpg" alt="Desktop Screenshot" style="max-width: 800px; height: auto;">
-    <p style="text-align: center; font-size: 16px; margin-top: 10px;">Desktop</p>
+  <p align="center">
+    <img src="Screenshot_2024.jpg" alt="Desktop Screenshot" height="250" width="450" />
+    </p>
   </div>
   <div>
-    <img src="Screenshot_20240318.png" alt="Android Screenshot" style="max-width: 400px; height: auto;">
-    <p style="text-align: center; font-size: 16px; margin-top: 10px;">Android</p>
+  <p align="center">
+    <img src="Screenshot_20240318.png" alt="Android Screenshot" height="450" width="250" />
+    </p>
   </div>
 </div>
 
