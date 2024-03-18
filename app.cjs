@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
-const { promisify } = require('util');
+const fs = require('fs')
 const path = require('path');
 const { join } = require('path');
-const exec = promisify(require('child_process').exec);
+
 
 const MUSIC_DIR = path.join(__dirname, 'songs');
 app.use(express.static('public'));

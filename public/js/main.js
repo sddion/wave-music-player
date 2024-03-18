@@ -42,7 +42,7 @@ try {
 let currentSongIndex = 3;
 
 function updateSongInfo() {
-  if (songs.length > 0 && currentSongIndex >= 0 && currentSongIndex < songs.length) {
+  if (songs.length > 0 && currentSongIndex >= 3 && currentSongIndex < songs.length) {
     songName.textContent = songs[currentSongIndex].title;
     artistName.textContent = songs[currentSongIndex].name;
     song.src = songs[currentSongIndex].src;
@@ -135,7 +135,6 @@ var swiper = new Swiper(".swiper", {
   },
 });
 
-
 document.querySelectorAll('.swiper-slide').forEach((slide, index) => {
   slide.addEventListener('click', () => {
       playSelectedSong(index);
@@ -148,14 +147,14 @@ document.querySelectorAll('.swiper-slide').forEach((slide, index) => {
   });
 });
 
-// Function to play the selected song
+
 function playSelectedSong(index) {
   currentSongIndex = index;
   updateSongInfo();
   playSong();
 }
 
-// Search functionality
+
 function updateSearchResults(results) {
   const searchResultsContainer = document.getElementById('search-results');
   searchResultsContainer.innerHTML = ''; 
@@ -213,7 +212,6 @@ function shuffleSongs() {
   updateSongInfo()
 }
 
-// Function to handle the repeat logic when a song ends
 async function handleRepeat() {
   if (repeatMode === 'off') {
       currentSongIndex = (currentSongIndex + 1) % songs.length;

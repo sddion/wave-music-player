@@ -1,6 +1,8 @@
 # Wave Music Player
 
-![Wave Music Player]()
+<div style="display: flex; justify-content: center;  ">
+  <img src="public/logo.png" alt="Logo" style="height: 100px; width: 100px; margin-right: 10px;">
+</div>
 
 Wave Music Player is a sleek and intuitive web application for playing your favorite tunes. It offers a user-friendly interface and a range of features to enhance your listening experience.
 
@@ -19,13 +21,28 @@ Wave Music Player is a sleek and intuitive web application for playing your favo
 
 ## Demo
 
-[Live Demo](https://wave-music-player.onrender.com/)
+<div style="display: flex; justify-content: center;">
+  <a href="https://wave-music-player.onrender.com/" style="text-decoration: none; display: flex; align-items: center; padding: 10px 20px; border: 2px solid #000; border-radius: 5px; background-color: cornflowerblue; color: #000;">
+    <img src="public/logo.png" alt="Logo" style="height: 30px; width: auto; margin-right: 10px;">
+    <span style="font-size: 16px;">Live Demo</span>
+  </a>
+</div>
+
 
 ## Screenshots
 
-<p align="center"  >
-  <img height="300" width="650" src="Screenshot_2024.jpg" />
-</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="margin-bottom: 20px;">
+    <img src="Screenshot_2024.jpg" alt="Desktop Screenshot" style="max-width: 800px; height: auto;">
+    <p style="text-align: center; font-size: 16px; margin-top: 10px;">Desktop</p>
+  </div>
+  <div>
+    <img src="Screenshot_20240318.png" alt="Android Screenshot" style="max-width: 400px; height: auto;">
+    <p style="text-align: center; font-size: 16px; margin-top: 10px;">Android</p>
+  </div>
+</div>
+
+
 
 
 ## Installation
