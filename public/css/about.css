@@ -9,6 +9,7 @@ body {
   color: #666;
   text-align: justify;
   font-family: var(--family);
+  min-height: 100vh;
   background: url(../img/10446329.jpeg);
   background-repeat: no-repeat;
   backdrop-filter: blur(8px);

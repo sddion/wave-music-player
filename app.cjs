@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -8,17 +7,18 @@ const { join } = require('path');
 const exec = promisify(require('child_process').exec);
 
 const MUSIC_DIR = path.join(__dirname, 'songs');
-const METADATA_DIR = path.join(__dirname, 'metadata');
+app.use(express.static('public'));
 
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
 
-app.use(express.static('public'));
- app.use('/api/songs', express.static(MUSIC_DIR)); 
-app.use(express.static(METADATA_DIR));
-
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  debug(err.stack); 
+  res.status(500).send('Something went wrong!');
+});
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'index.html'));
@@ -40,68 +40,9 @@ app.get('/songs/:filename', async (req, res) => {
   }
 });
 
-class MusicPlayer {
-  constructor(musicDir) {
-    this.musicDir = path.resolve(musicDir); 
-    this.metadataDir = path.resolve(METADATA_DIR);
-    this.currentSong = { title: '', artist: '', duration: 0, filename: '' };
-    this.remainingSongs = [];
-    this.currentIndex = 3;
-  }
-
-  async initialize() {
-    try {
-      const files = await this.getMusicFiles();
-      if (files.length === 0) {
-        throw new Error('No music files found in the directory.');
-      }
-      this.remainingSongs = files;
-    } catch (error) {
-      console.error(`Error initializing music player: ${error}`);
-      debug(error.stack);
-      throw error;
-    }
-  }
-
-  async getMusicFiles() {
-    try {
-      const files = await fs.promises.readdir(this.musicDir);
-      return files.filter(file => file.endsWith('.mp3'));
-    } catch (error) {
-      console.error(`Error reading music files: ${error}`);
-      debug(error.stack);
-      throw error;
-    }
-  }
-
-  async play() {
-    try {
-      if (this.currentIndex >= this.remainingSongs.length) {
-        this.currentIndex = 0;
-      }
-      const currentSong = this.remainingSongs[this.currentIndex];
-      this.currentIndex++;
-      return currentSong;
-    } catch (error) {
-      console.error(`Error in play: ${error}`);
-      debug(error.stack);
-      throw error;
-    }
-  }
-}
-
-const player = new MusicPlayer(MUSIC_DIR);
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  debug(err.stack); 
-  res.status(500).send('Something went wrong!');
-});
-
 
 (async () => {
   try {
-    await player.initialize();
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server is running on http://0.0.0.0:${PORT}`);
