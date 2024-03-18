@@ -402,20 +402,20 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  header, footer {
+
+  body{
+    min-height: 98vh;
+    width: 94.5%;
+  }
+
+  header {
     justify-content: flex-end;
-    padding-right: 40px;
-    padding-left: 20px; 
+    padding-right: 20px;
+    font-size: 0.8rem ;
   }
-  
-  header{
-    font-size: 0.6rem ;
-  }
-  
+
   #header-logo {
     width: 40px;  
-    margin-top: 2px;
-    margin-right: 5px;
   }
   
   #search{
@@ -424,13 +424,14 @@ footer {
   }
   
   .search-input{
-    background-size: 18px ;
+    background: none ;
+
   }
   
-  #progress{
-    width: 96%;
+  footer{
+    padding-left: 13px;
   }
-  
+
   .footer-content {
     flex-direction: column; 
   }
@@ -439,12 +440,19 @@ footer {
     text-align: center; 
   }
 
+  .footer-text{
+    padding: 2px;
+  }
+
+  #footer-logo{
+    padding-top: 4px;
+  }
+
   .album-cover{
     margin-top: 6%;
   }
 
   .controls button {
-     width: 24px ;
-     font-size :0.7rem;
+     width: 30px ;
   }
 }
