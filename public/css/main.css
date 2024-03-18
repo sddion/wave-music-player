@@ -269,7 +269,7 @@ nav ul li a:hover {
   height: 7px;
   border-radius: 4px;
   width: 0;
-  transition: width 0.1s ease-in-out, background-color 1s ease-in-out;
+  transition: width 100ms ease-in, background-color 1s ease-in-out;
   position: relative;
 }
 
@@ -407,56 +407,46 @@ footer {
     min-height: 98vh;
     width: 94.5%;
   }
-
   header {
     justify-content: flex-end;
     padding-right: 20px;
     font-size: 0.8rem ;
   }
-
   #header-logo {
     width: 40px; 
     margin-right: 10px; 
   }
-  
   #search{
     width: 100px;
     font-size: 10px ;
   }
-  
   .search-input{
     background: none ;
-
   }
-  
   footer{
     padding-left: 13px;
   }
-  
   .footer-content {
     flex-direction: column; 
   }
-  
   .logo, .footer-text {
     text-align: center; 
   }
-
   .footer-text{
     padding: 2px;
   }
-
   #footer-logo{
     padding-top: 4px;
   }
-  
   .album-cover{
     margin-top: 6%;
   }
-  
+  #progress{
+    margin-left: 1.4rem;
+  }
   .controls {
     padding-left: 1.4rem;
   }
-  
   .controls button {
      width: 30px ;
   }
