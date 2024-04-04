@@ -42,7 +42,7 @@ Wave Music Player is a sleek and intuitive web application for playing your favo
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/d10xi24/wave-music-player.git
+   git clone https://github.com/sddion/wave-music-player.git
    ```
 
 2. Navigate to the project directory:
