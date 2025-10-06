@@ -1,3 +1,12 @@
+### 🚨 Read-Only Repository 🚨
+
+**Important Notice:** This GitHub repository is now read-only. The Wave Music Player project has been migrated to a new repository using Typescript & Next.js instead of Express.js. 
+
+#### Why the Repository is Read-Only:
+- **Migration to Next.js:** The project has been redesigned and implemented using Express.js instead of Flask and Python. The new repository can be found [here](https://github.com/d10xi24/Ragava/).
+---
+
+
 # Wave Music Player
 
 <p align="center">
